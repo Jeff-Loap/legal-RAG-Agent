@@ -12,7 +12,7 @@ from legal_agent import LegalRAGAgent, LegalRAGStore, get_default_config
 from legal_agent.config import LLMSettings
 
 
-st.set_page_config(page_title="法律 RAG Agent", page_icon="⚖️", layout="wide")
+st.set_page_config(page_title="法律 RAG 知识库助手", page_icon="⚖️", layout="wide")
 APP_DIR = Path(__file__).resolve().parent
 CONFIG_INI_PATH = APP_DIR / "config.ini"
 
@@ -220,7 +220,7 @@ def render_sidebar() -> LLMSettings:
 
 def main():
     llm_settings = render_sidebar()
-    st.title("法律 RAG Agent")
+    st.title("法律 RAG 知识库助手")
     st.write("支持本地法律文件入库、混合检索和带引用的问答。")
 
     if "messages" not in st.session_state:

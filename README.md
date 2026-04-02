@@ -1,6 +1,6 @@
-# 法律 RAG Agent
+# 法律 RAG 知识库助手
 
-这个项目是一个面向法律问答场景的本地 RAG 系统，提供 Streamlit 图形界面、命令行入口、离线索引构建和带引用的答案生成能力。它主要服务于法律文本检索、法律条文问答、案例/法规辅助定位等任务。
+这个项目是一个面向法律问答场景的本地 RAG 知识库助手，提供 Streamlit 图形界面、命令行入口、离线索引构建和带引用的答案生成能力。它主要服务于法律文本检索、法律条文问答、案例/法规辅助定位等任务。
 
 ## 这个项目能做什么
 
@@ -141,5 +141,5 @@ python query_legal_rag.py
 ## 相关文档
 
 - [架构说明](docs/architecture.md)
-- [法律 RAG Agent 说明](docs/legal_rag_agent_formal.md)
+- [法律 RAG 知识库助手说明](docs/legal_rag_agent_formal.md)
 - [内部说明](docs/legal_rag_agent_internal.md)

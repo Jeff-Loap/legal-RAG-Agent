@@ -9,7 +9,7 @@ if exist "%PYTHON_EXE%" goto run_app
 set "PYTHON_EXE=python"
 
 :run_app
-echo Starting Legal RAG Agent...
+echo Starting Legal RAG Knowledge Base Assistant...
 echo Working directory: %cd%
 echo Python: %PYTHON_EXE%
 echo.

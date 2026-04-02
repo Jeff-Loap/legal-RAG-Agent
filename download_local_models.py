@@ -28,7 +28,7 @@ def download_repo(repo_id: str) -> str:
 
 
 def parse_args() -> argparse.Namespace:
-    parser = argparse.ArgumentParser(description="下载本地法律 RAG 所需模型。")
+    parser = argparse.ArgumentParser(description="下载法律 RAG 知识库助手所需模型。")
     parser.add_argument(
         "--embedding-repo",
         default=EMBEDDING_REPO_CANDIDATES[0],
