@@ -17,28 +17,42 @@
 - `query_legal_rag.py`：命令行问答入口
 - `start_rag_app.bat`：Windows 一键启动脚本
 - `legal_agent/`：核心检索、记忆、存储和工作流实现
+- `requirements.txt`：一键安装依赖清单
 - `pdf_data/`：法律 PDF 数据源
 - `raw_data/`：原始文档数据源
 - `legal_agent_runtime/`：运行时索引与数据库文件
 - `docs/`：项目架构和说明文档
 
-## 运行方式
+## 安装步骤
 
-### 方式一：启动图形界面
+以下流程适合第一次部署这个项目的情况。
 
-双击 `start_rag_app.bat`，或者在项目目录下执行：
+### 1. 准备 Python 环境
 
-```bash
-streamlit run app.py
-```
-
-### 方式二：命令行问答
+建议使用 Python 3.10 或 3.11，并在项目目录下创建虚拟环境：
 
 ```bash
-python query_legal_rag.py
+python -m venv .venv
 ```
 
-## 配置说明
+Windows 激活虚拟环境：
+
+```bash
+.venv\Scripts\activate
+```
+
+### 2. 安装依赖
+
+```bash
+pip install -r requirements.txt
+```
+
+如果后续要使用 OCR 功能，通常还需要额外安装系统组件：
+
+- `Tesseract OCR`
+- `Poppler`
+
+### 3. 配置模型与密钥
 
 这个项目使用 `config.ini` 保存大模型连接信息。公开仓库中已经将密钥占位处理为：
 
@@ -46,7 +60,7 @@ python query_legal_rag.py
 api_key = 你的api密钥
 ```
 
-如果要在本地运行，需要把它替换成你自己的真实密钥，或者改用环境变量配置。
+部署时需要把它替换成你自己的真实密钥，或者改用环境变量配置。
 
 `legal_agent/config.py` 也支持从环境变量读取配置，常用字段如下：
 
@@ -55,6 +69,30 @@ api_key = 你的api密钥
 - `RAG_LLM_MODEL`
 - `RAG_RETRIEVAL_MODE`
 - `RAG_ANSWER_PROFILE`
+
+### 4. 预下载本地模型
+
+这个项目支持本地缓存模型离线运行。首次部署时可以先执行：
+
+```bash
+python download_local_models.py
+```
+
+### 5. 启动应用
+
+#### 方式一：启动图形界面
+
+双击 `start_rag_app.bat`，或者在项目目录下执行：
+
+```bash
+streamlit run app.py
+```
+
+#### 方式二：命令行问答
+
+```bash
+python query_legal_rag.py
+```
 
 ## 数据与索引
 
@@ -79,14 +117,18 @@ api_key = 你的api密钥
 - `streamlit`
 - `pymupdf`
 - `sentence-transformers`
-- `faiss`
+- `faiss-cpu`
 - `numpy`
 - `scikit-learn`
 - `pillow`
 - `opencv-python`
 - `pytesseract`
 - `pdf2image`
+- `pdfplumber`
 - `huggingface_hub`
+- `openai`
+- `langchain-core`
+- `langgraph`
 - `PySide6`
 
 ## 设计特点
@@ -101,4 +143,3 @@ api_key = 你的api密钥
 - [架构说明](docs/architecture.md)
 - [法律 RAG Agent 说明](docs/legal_rag_agent_formal.md)
 - [内部说明](docs/legal_rag_agent_internal.md)
-

@@ -1,0 +1,16 @@
+streamlit
+pymupdf
+sentence-transformers
+faiss-cpu
+numpy
+scikit-learn
+pillow
+opencv-python
+pytesseract
+pdf2image
+pdfplumber
+huggingface_hub
+openai
+langchain-core
+langgraph
+PySide6
